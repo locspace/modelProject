@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>datalist</title>
+</head>
+<body>
+<style>
+.mytable{
+border: 1px dashed black}
+</style>
+
+	<span th:text="indexstring">123</span>
+	
+	<table >
+	<tr th:each="jpa:${datalist}">
+	<td class="mytable" th:text="${jpa.id}">id</td>
+	<td class="mytable" th:text="${jpa.name}">name</td>
+	<td class="mytable" th:text="${jpa.msg}">msg</td>
+	</tr>
+	
+	</table>
+	
+	
+	
+</body>
+</html>
