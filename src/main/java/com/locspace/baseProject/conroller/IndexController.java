@@ -28,18 +28,24 @@ public class IndexController {
 	
 	
 	@SuppressWarnings("deprecation")
-	@RequestMapping("/index")
+	@RequestMapping({"/index","/"})
 	public String index(ModelMap modelMap) {
 		JpaData jpaData=new JpaData();
 		modelMap.addAttribute("indexstring", "now is" +DateFormat.getDateTimeInstance().format(new Date()));
 		
-		Optional<JpaData> optional=jpaDao.findByName("2");
-		if (optional.isPresent()) {
-			System.out.println(jpaData.toString());
-			 jpaData = optional.get();
+//		Optional<JpaData> optional=jpaDao.findByName("2");
+//		if (optional.isPresent()) {
+//			System.out.println(jpaData.toString());
+//			 jpaData = optional.get();
+//			 modelMap.addAttribute("jpadata",jpaData);
+//		}
+		
+		List<JpaData> datas = jpaDao.findAll();
+		if (null!=datas&&datas.size()>0) {
+			 jpaData = datas.get(0);
+			 modelMap.addAttribute("jpadata",jpaData);
 		}
 		
-		modelMap.addAttribute("jpadata",jpaData);
 		
 		return "index";
 		

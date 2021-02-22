@@ -5,13 +5,18 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<span th:text="indexstring">123</span>
+	<span th:text="${indexstring}">123</span>
 	
 	<table>
 	<tr>
-	<td th:text="${jpadata.id}">id</td>
-	<td th:text="${jpadata.name}">name</td>
-	<td th:text="${jpadata.msg}">msg</td>
+	<th>id</th>
+	<th>name</th>
+	<th>msg</th>
+	</tr>
+	<tr>
+	<td th:text="${jpadata?.id}">id</td>
+	<td th:text="${jpadata?.name}">name</td>
+	<td th:text="${jpadata?.msg}">msg</td>
 	</tr>
 	
 	</table>

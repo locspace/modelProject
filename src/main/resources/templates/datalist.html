@@ -13,6 +13,11 @@ border: 1px dashed black}
 	<span th:text="indexstring">123</span>
 	
 	<table >
+		<tr>
+	<th>id</th>
+	<th>name</th>
+	<th>msg</th>
+	</tr>
 	<tr th:each="jpa:${datalist}">
 	<td class="mytable" th:text="${jpa.id}">id</td>
 	<td class="mytable" th:text="${jpa.name}">name</td>
