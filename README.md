@@ -5,4 +5,4 @@
 			
 
 ## 2 H2 branch 毋须操作数据库 内存测试
--  H2访问地址 localhost:port/h2-console 
+-  H2访问地址 localhost:port/h2
