@@ -1,17 +1,13 @@
 package com.locspace.baseProject.dao;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.locspace.baseProject.bean.JpaData;
+import com.locspace.baseProject.bean.Autochart;
 
 @Repository
-public interface JpaDao extends JpaRepository<JpaData, Long>{
+public interface AutochartDao extends JpaRepository<Autochart, String>{
 	
-	Optional<JpaData> findByName(String name);
-	
-
 }

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>datalist</title>
+<script src="../static/js/jquery.min.js" th:src=@{/js/jquery.min.js}></script>
+<script src="../static/js/echarts.min.js" th:src=@{/js/echarts.min.js}></script>
+</head>
+<body>
+<style>
+.mytable{
+border: 1px dashed black}
+</style>
+
+<div id="main"  style="width: 800px;height: 500px;"></div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	 var myChart = echarts.init(document.getElementById('main'));
+
+	  myChart.showLoading();
+	  var datalist=[];
+
+		$.ajax({
+			type:"post",
+			async:true,
+			url:"/s6",
+			data:{},
+			dataType:"json",
+			success:function(result){
+				if(result){
+					datalist=result;
+				}
+				
+				  myChart.hideLoading(); 
+				  
+				  myChart.setOption({
+					  tooltip:{},  
+					    xAxis: {},
+					    yAxis: {},
+					  series:[{
+						  symbolSize: 1,
+						 data: datalist,
+						 type: 'scatter' 
+					  }]
+				  });
+			},
+			    error : function(errorMsg) {
+                //请求失败时执行该函数
+                alert("图表请求数据失败!");
+                myChart.hideLoading();
+            }
+		})
+
+
+})
+
+
+</script>
+
+	
+	
+	
+	
+</body>
+</html>
